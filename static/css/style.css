@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.secondary-text {
+    font-weight: lighter;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.upload-btn {
+    display: grid;
+    place-items: center;
+}

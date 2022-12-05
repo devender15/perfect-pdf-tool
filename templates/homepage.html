@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block title %} Pdf Tool {% endblock %}
+
+{% load static %}
+
+
+{% block body %} 
+
+<header class="container text-center p-2 mt-4">
+    <h2>A perfect PDF tool is here !</h2>
+    <p class="fs-5">Every tool you need to use PDFs, at your fingertips. All are easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+</header>
+
+<main class="w-100 p-2 d-flex align-items-center justify-content-center gap-2 mt-4">
+    <a href="/merger/" role="button" class="rounded-2 text-decoration-none bg-info text-white px-2 py-1">
+        Merge PDF
+    </a>
+
+    <a href="/split/" role="button" class="rounded-2 text-decoration-none bg-danger text-white px-2 py-1">
+        Split PDF
+    </a>
+
+    <a href="/compress/" role="button" class="rounded-2 text-decoration-none bg-warning text-white px-2 py-1">
+        Compress PDF
+    </a>
+</main>
+
+
+<div class="w-100 d-flex justify-content-center mt-4">
+    <img src="{% static 'images/pdf-icon.png' %}" alt="pdf">
+</div>
+
+<footer class="w-100 text-center position-absolute bottom-0 py-4">
+    <p class="w-100">Made with ♥ by Devender Pal.</p>
+</footer>
+
+{% endblock %}

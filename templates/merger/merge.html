@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %} Merge PDF | Pdf tool {% endblock %}
+
+{% load static %}
+
+
+{% block body %}
+
+<header class="container mt-3">
+    <h2 class="text-center">Merge your pdf here</h2>
+    <p class="secondary-text">Combine all your pdfs into one pdf in just few seconds !</p>
+</header>
+
+<div class="main-container d-flex align-items-center mt-5">
+
+    <form method="post" action="{% url 'upload' %}" enctype="multipart/form-data" class="w-50">
+        {% csrf_token %}
+        <div class="container w-75 d-flex align-items-center justify-content-center">
+            <div class="upload-btn">
+                <label for="pdf" class="p-2 text-white rounded-2 bg-success" role="button">Add Pdf</label>
+                <input type="file" name="pdf" id="pdf" style="visibility: hidden;">
+                <button type="submit" class="btn btn-primary">Upload </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="pdfs d-flex flex-column container w-50">
+        {% if data|length >= 1 %}
+        <h2>Added pdfs</h2>
+        <ul>
+            {% for pdf in data %}
+            <li>{{pdf}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+</div>
+
+{% if data|length >= 2 %}
+<div class="mt-4 d-flex justify-content-center">
+    <a href="{% url 'merge-pdf' %}" class="btn btn-warning">MERGE</a>
+</div>
+{% endif %}
+
+<footer class="w-100 text-center position-absolute bottom-0 py-4">
+    <p class="w-100">Made with ♥ by Devender Pal.</p>
+</footer>
+
+{% endblock %}
