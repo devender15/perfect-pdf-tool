@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block title %} Split PDF | Pdf Tool {% endblock%}
+
+{% load static %}
+
+{% block body %}
+
+<header class="container p-2">
+    <h2 class="text-center">Select required options below</h2>
+</header>
+
+<main class="container d-flex flex-column align-items-center justify-content-between my-5">
+    <div class="d-flex sm:flex-column align-items-center justify-content-between w-75">
+        <aside class="px-4">
+            <h3>Attached pdf</h3>
+            <p><b>{{pdf}}</b></p>
+        </aside>
+
+        <aside>
+            <form method="post" action="{% url 'split_pdf' %}">
+                {% csrf_token %}
+                <div class="d-flex align-items-center">
+                    <label for="range" class="form-label">Split in page ranges of:</label>
+                    <input type="number" class="mx-1 form-control w-50" name="range" id="range">
+                </div>
+                <button type="submit" class="btn btn-primary">Split</button>
+            </form>
+        </aside>
+    </div>
+
+    <p class="info-para mt-5">This PDF will be split into required amount of pdfs.
+
+</main>
+
+<footer class="w-100 text-center position-absolute bottom-0 py-4">
+    <p class="w-100">Made with ♥ by Devender Pal.</p>
+</footer>
+
+{% endblock %}

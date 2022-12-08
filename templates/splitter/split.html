@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Split PDF | Pdf Tool {% endblock %}
+
+{% block body %}
+
+<header class="container mt-3">
+    <h2 class="text-center">Split your pdf here</h2>
+    <p class="secondary-text">Separate one page or a whole set for easy conversion into independent PDF files.</p>
+</header>
+
+<main class="container mt-5 p-2 d-flex justify-content-center">
+    <form method="post" action="{% url 'pdf_options' %}" enctype="multipart/form-data" class="w-50">
+        {% csrf_token %}
+        <div class="container w-75 d-flex align-items-center justify-content-center">
+            <div class="upload-btn">
+                <label for="pdf" class="p-2 text-white rounded-2 bg-success" role="button">Attach Pdf</label>
+                <input type="file" name="pdf" id="pdf" style="visibility: hidden;">
+                <button type="submit" class="btn btn-primary">Upload </button>
+            </div>
+        </div>
+    </form>
+</main>
+
+<footer class="w-100 text-center position-absolute bottom-0 py-4">
+    <p class="w-100">Made with ♥ by Devender Pal.</p>
+</footer>
+
+{% endblock %}
