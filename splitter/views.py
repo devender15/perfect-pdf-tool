@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponse
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import os
-from math import ceil
 from datetime import date
 import time
 import shutil
@@ -17,7 +16,7 @@ def homepage(req):
 def upload_pdf(req):
 
     # deleting the split_pdf_folder to save new file
-    shutil.rmtree("split_pdf_folder")
+    shutil.rmtree("split_pdf_folder") if (os.path.exists("split_pdf_folder")) else ""
 
     if(req.method == "POST"):
         form = UploadPdf(req.POST, req.FILES)

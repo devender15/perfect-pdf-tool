@@ -20,6 +20,9 @@
                 <label for="pdf" class="p-2 text-white rounded-2 bg-success" role="button">Add Pdf</label>
                 <input type="file" name="pdf" id="pdf" style="visibility: hidden;">
                 <button type="submit" class="btn btn-primary">Upload </button>
+                {% if data|length >= 1 %}
+                <a href="{% url 'remove_all' %}" class="btn btn-primary my-4">Remove all pdfs</a>
+                {% endif %}
             </div>
         </div>
     </form>

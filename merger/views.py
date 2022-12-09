@@ -22,6 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 def homepage(req):
     return render(req, 'merger/merge.html', {'data': pdfs})
 
+def remove_all_attachments(req):
+    # clearing the pdfs array
+    pdfs.clear()
+    shutil.rmtree("raw_pdfs", ignore_errors=True) if(os.path.exists("raw_pdfs")) else ""
+    return render(req, 'merger/merge.html', {'data': pdfs})
+
 def upload_pdf(req):
 
     if(req.method == "POST"):
