@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block title %} Compress PDF | Pdf Tool {% endblock %}
+{% load static %} 
+
+
+{% block body %}
+
+<header class="container p-2 text-center mt-4">
+  <h2 class="text-center">Compress PDF file</h2>
+  <p>Reduce file size while optimizing for maximal PDF quality.</p>
+</header>
+
+<main class="container p-2 my-4">
+  <form
+    method="post"
+    action="{% url 'upload_pdf' %}"
+    enctype="multipart/form-data"
+    class="w-100 d-flex align-items-center justify-content-center"
+  >
+    {% csrf_token %}
+    <div
+      class="container w-75 d-flex align-items-center justify-content-center"
+    >
+      <div class="upload-btn">
+        <label
+          for="pdf"
+          class="p-2 text-white rounded-2 bg-success"
+          role="button"
+          >Attach Pdf</label
+        >
+        <input type="file" name="pdf" id="pdf" style="visibility: hidden" />
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </div>
+    </div>
+  </form>
+</main>
+
+
+<footer class="w-100 text-center position-absolute bottom-0 py-4">
+    <p class="w-100">Made with ♥ by Devender Pal.</p>
+</footer>
+
+{% endblock %}
